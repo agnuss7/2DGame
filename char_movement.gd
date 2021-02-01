@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var speed = 200
+export (int) var speed = 80
 
 var velocity = Vector2()
 
@@ -19,3 +19,9 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
+
+func _process(delta):
+	if Input.is_action_pressed("right"):
+		$AnimationPlayer.play("walkingRight")
+	else:
+		$AnimationPlayer.stop()

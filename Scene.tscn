@@ -30,3 +30,6 @@ anims/walkingDown = ExtResource( 4 )
 anims/walkingLeft = ExtResource( 3 )
 anims/walkingRight = ExtResource( 6 )
 anims/walkingUp = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+current = true

@@ -21,7 +21,6 @@ scale = Vector2( 0.326932, 0.306001 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 3
-frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 1 )

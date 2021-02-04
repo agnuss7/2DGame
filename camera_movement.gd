@@ -15,7 +15,7 @@ func set_limits():
 	print(nod.region_rect)
 
 func _process(delta):
-	position=get_node("../KinematicBody2D").position
+	position=get_node("../YSort/KinematicBody2D").position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

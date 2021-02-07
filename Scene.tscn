@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://SceneTree.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Lobby.tscn" type="PackedScene" id=1]
 [ext_resource path="res://camera_movement.gd" type="Script" id=7]
 [ext_resource path="res://sprites/icon.png" type="Texture" id=8]
 [ext_resource path="res://sprites/many_sprites.png" type="Texture" id=10]
@@ -32,7 +31,6 @@
 0/z_index = 0
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -56,4 +54,9 @@ tile_data = PoolIntArray( -655373, 0, 0, -655372, 0, 6, -655371, 0, 6, -655370, 
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="1" parent="YSort" instance=ExtResource( 1 )]
+[node name="Sprite" type="Sprite" parent="YSort"]
+position = Vector2( -11.0002, -12.6353 )
+scale = Vector2( 0.656245, 0.605146 )
+texture = ExtResource( 8 )
+
+[node name="Node" parent="." instance=ExtResource( 1 )]

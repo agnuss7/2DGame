@@ -19,7 +19,7 @@ func return_master_position():
 	for node in nodes:
 		if(int(node.name[0])>0 or node.is_network_master()):
 			return node.position
-		return get_node("../Background").position
+	return get_node("../Background").position
 
 
 func _process(delta):

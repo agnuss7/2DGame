@@ -19,6 +19,11 @@ config/name="Puzzle Game"
 run/main_scene="res://Scene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalSceneTree="*res://SceneTree.gd"
+NeetWork="*res://NeetWork.gd"
+
 [display]
 
 window/size/width=256

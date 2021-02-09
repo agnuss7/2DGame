@@ -1,27 +1,25 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://SceneTree.gd" type="Script" id=1]
+[ext_resource path="res://Lobby.gd" type="Script" id=1]
 
-[node name="Node" type="Node"]
-script = ExtResource( 1 )
-
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control"]
 margin_left = 8.02715
 margin_top = -97.515
 margin_right = 48.0271
 margin_bottom = -57.515
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="JoinButton" type="Button" parent="Control"]
+[node name="JoinButton" type="Button" parent="."]
 margin_right = 52.0
 margin_bottom = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Control/JoinButton"]
+[node name="Label" type="Label" parent="JoinButton"]
 margin_top = 3.0
 margin_right = 52.0
 margin_bottom = 19.0
@@ -29,7 +27,7 @@ text = "JOIN"
 align = 1
 uppercase = true
 
-[node name="HostButton" type="Button" parent="Control"]
+[node name="HostButton" type="Button" parent="."]
 margin_left = -66.5956
 margin_top = 0.297302
 margin_right = -14.5956
@@ -38,10 +36,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Control/HostButton"]
+[node name="Label" type="Label" parent="HostButton"]
 margin_top = 3.0
 margin_right = 52.0
 margin_bottom = 19.0
 text = "Host"
 align = 1
 uppercase = true
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = -55.0
+margin_top = -27.0
+margin_right = 40.0
+margin_bottom = -9.0

@@ -4,8 +4,4 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Node" parent="." instance=ExtResource( 1 )]
-margin_left = 139.285
-margin_top = 56.0772
-margin_right = 179.285
-margin_bottom = 96.0772
+[node name="Control" parent="." instance=ExtResource( 1 )]

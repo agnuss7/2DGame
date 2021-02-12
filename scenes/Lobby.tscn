@@ -3,23 +3,27 @@
 [ext_resource path="res://Lobby.gd" type="Script" id=1]
 
 [node name="Control" type="Control"]
-margin_left = 8.02715
-margin_top = -97.515
-margin_right = 48.0271
-margin_bottom = -57.515
+margin_left = 124.735
+margin_top = 59.2832
+margin_right = 164.735
+margin_bottom = 99.2832
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="JoinButton" type="Button" parent="."]
-margin_right = 52.0
-margin_bottom = 20.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="JoinButton" type="Button" parent="CanvasLayer"]
+margin_left = 131.862
+margin_top = 73.5376
+margin_right = 183.862
+margin_bottom = 93.5376
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="JoinButton"]
+[node name="Label" type="Label" parent="CanvasLayer/JoinButton"]
 margin_top = 3.0
 margin_right = 52.0
 margin_bottom = 19.0
@@ -27,25 +31,31 @@ text = "JOIN"
 align = 1
 uppercase = true
 
-[node name="HostButton" type="Button" parent="."]
-margin_left = -66.5956
-margin_top = 0.297302
-margin_right = -14.5956
-margin_bottom = 20.2973
+[node name="HostButton" type="Button" parent="CanvasLayer"]
+margin_left = 65.2664
+margin_top = 73.8349
+margin_right = 117.266
+margin_bottom = 93.8349
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HostButton"]
+[node name="Label" type="Label" parent="CanvasLayer/HostButton"]
 margin_top = 3.0
 margin_right = 52.0
 margin_bottom = 19.0
 text = "Host"
 align = 1
 uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TextEdit" type="TextEdit" parent="."]
-margin_left = -55.0
-margin_top = -27.0
-margin_right = 40.0
-margin_bottom = -9.0
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+margin_left = 76.862
+margin_top = 46.5376
+margin_right = 171.862
+margin_bottom = 64.5376
+__meta__ = {
+"_edit_use_anchors_": false
+}

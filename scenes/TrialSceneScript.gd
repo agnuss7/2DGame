@@ -1,25 +1,15 @@
-extends Control
+extends Node2D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
-var text
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var host_butt=get_node("CanvasLayer/HostButton")
-	var join_butt=get_node("CanvasLayer/JoinButton")
-	text=get_node("CanvasLayer/TextEdit")
-	host_butt.connect("pressed", self, "_host_button_pressed")
-	join_butt.connect("pressed", self, "_join_button_pressed")
-
-
-func Load_level(var u_id):
-	var level=load("res://scenes/TrialScene.tscn").instance()
-	
-	get_tree().change_scene("res://scenes/TrialScene.tscn")
 	var player=load("res://Player/Player.tscn").instance()
+	var u_id=get_tree().get_network_unique_id()
 	player.name=str(u_id)
 	player.set_network_master(u_id)
 #	var back=load("res://Other/TrialBackground.tscn").instance()
@@ -32,18 +22,7 @@ func Load_level(var u_id):
 #	$'/root/Node2D'.add_child(y)
 	$'/root/Node2D/YSort'.add_child(player)
 
-	
-func _host_button_pressed():
-	NeetWork.host_game(text.text)
-	LevelLoader.Load_level_one()
-	self.queue_free()
-	
-func _join_button_pressed():
-	NeetWork.join_game(NeetWork.ip, text.text)
-	LevelLoader.Load_level_one()
-	self.queue_free()
-	
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

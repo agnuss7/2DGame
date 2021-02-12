@@ -41,7 +41,7 @@ func get_input():
 current_h wasn't needed, since flip_h could've recorded how a sprite is facing horizontally. Knowing where the character is facing will probably be useful in the future when interaction with objects is implemented.
 
 ## Walking animations
-After creating the needed animations from a *[sprite sheet](https://www.deviantart.com/lightningtopaz/art/Moltres-gijinka-835037518) coding it is easy:
+After creating the needed animations from a [sprite sheet](https://www.deviantart.com/lightningtopaz/art/Moltres-gijinka-835037518) coding it is easy:
 ```gdscript
 func animations():
 	if Input.is_action_pressed("right") or Input.is_action_pressed("left"):
@@ -66,4 +66,18 @@ func set_limits():
 	limit_top=nod.position.y-rect.end.y*nod.scale.y
 ```
 ## Multiplayer - synchronized walking
-Used *[this project](https://github.com/GDQuest/godot-demos/tree/master/2018/07-30-2018-multiplayer-high-level-api) a lot to help get started with multiplayer, used rset in char_movement.gd to sync player movements.
+Used [this project](https://github.com/GDQuest/godot-demos/tree/master/2018/07-30-2018-multiplayer-high-level-api) a lot to help get started with multiplayer, used rset in char_movement.gd to sync player movements.
+
+## Classes - operables and overlays
+Tried classes - or more like inheritance of scripts. It will be useful with what I call operables (objects in the game one can interact with) and overlays (pop-ups where you do stuff i. e. solve a puzzle)
+```gdscript
+extends "res://Classes/operable_class.gd"
+
+func _operate():
+	._operate()
+	var node=get_node("/root/Node2D")
+	var overlay=load("res://scenes/TrialOverlay.tscn").instance()
+	node.add_child(overlay)
+	overlay.pass_operable_name(self)
+	overlay.pass_correct_code("9999")
+```

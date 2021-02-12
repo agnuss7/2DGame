@@ -1,7 +1,10 @@
 extends KinematicBody2D
 
+### movement functions -----------------------
+
 export (int) var speed = 65
 
+var control_enabled=true
 
 enum animations {
 	right,
@@ -9,9 +12,9 @@ enum animations {
 	down,
 	none
 }
-remote var r_position=Vector2()
+remote var r_position=Vector2(2,2)
 remote var r_animations
-remote var r_flip
+remote var r_flip=1
 
 
 var velocity = Vector2()
@@ -21,6 +24,7 @@ enum pose {
 	up,
 	down
 }
+
 var current_h=pose.right
 var current=pose.right
 
@@ -78,16 +82,42 @@ func set_r_animations():
 	else:
 		$AnimationPlayer.stop()
 
+### --------------------
+
+func set_area_position():
+	var area_col=get_node("Area2D/CollisionShape2D")
+	if current==pose.right:
+		area_col.position=Vector2(16,0)
+	elif current==pose.left:
+		area_col.position=Vector2(-16,0)
+	elif current==pose.down:
+		area_col.position=Vector2(0,16)
+	else:
+		area_col.position=Vector2(0,-16)
+
+func get_operate_input():
+	if Input.is_action_just_pressed("operate"):
+		print(get_tree().get_root().get_child(2).get_children())
+		var area=get_node("Area2D")
+		var list=area.get_overlapping_bodies()
+		for bod in list:
+			if bod.has_method("_operate") and bod.is_free:
+				bod._operate()
+				control_enabled=false
+				return
+
 func _ready():
-	pass
-
-
+	position=NeetWork.player_info.position
+	print (NeetWork.players[int(name)].nick_name+" has joined")
 
 func _physics_process(delta):
 	if is_network_master():
-		get_input()
-		velocity = move_and_slide(velocity)
-		animations()
+		if control_enabled:
+			get_input()
+			velocity = move_and_slide(velocity)
+			animations()
+			set_area_position()
+			get_operate_input()
 	else:
 		position=r_position
 		set_r_animations()

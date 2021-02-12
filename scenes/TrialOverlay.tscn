@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/TrialOverlay.gd" type="Script" id=1]
+[ext_resource path="res://sprites/lock_part.png" type="Texture" id=2]
+[ext_resource path="res://sprites/number_lock_base.png" type="Texture" id=3]
+[ext_resource path="res://sprites/numbers_lock.png" type="Texture" id=4]
+
+[node name="CANVAS" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Base" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 131.183, 68.303 )
+scale = Vector2( 0.430367, 0.47044 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 336, 128 )
+
+[node name="Number1" type="Node2D" parent="CanvasLayer/Base"]
+position = Vector2( 72.7829, -0.446869 )
+scale = Vector2( 1.38807, 1.02329 )
+
+[node name="Highlight" type="Sprite" parent="CanvasLayer/Base/Number1"]
+self_modulate = Color( 0.47451, 0.964706, 0.564706, 0 )
+position = Vector2( -130, 0 )
+scale = Vector2( 1.47409, 1.3 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 80 )
+
+[node name="BaseOfNumber" type="Sprite" parent="CanvasLayer/Base/Number1/Highlight"]
+self_modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 80 )
+
+[node name="Number" type="Sprite" parent="CanvasLayer/Base/Number1/Highlight/BaseOfNumber"]
+self_modulate = Color( 0.8, 0.8, 0.8, 1 )
+scale = Vector2( 0.495286, 0.928983 )
+texture = ExtResource( 4 )
+hframes = 10
+region_rect = Rect2( 0, 0, 64, 88 )
+
+[node name="Number2" type="Node2D" parent="CanvasLayer/Base"]
+position = Vector2( 144.962, -0.446869 )
+scale = Vector2( 1.38807, 1.02329 )
+
+[node name="Highlight" type="Sprite" parent="CanvasLayer/Base/Number2"]
+self_modulate = Color( 0.47451, 0.964706, 0.564706, 0 )
+position = Vector2( -130, 0 )
+scale = Vector2( 1.47409, 1.3 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 80 )
+
+[node name="BaseOfNumber" type="Sprite" parent="CanvasLayer/Base/Number2/Highlight"]
+self_modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 80 )
+
+[node name="Number" type="Sprite" parent="CanvasLayer/Base/Number2/Highlight/BaseOfNumber"]
+self_modulate = Color( 0.8, 0.8, 0.8, 1 )
+scale = Vector2( 0.495286, 0.928983 )
+texture = ExtResource( 4 )
+hframes = 10
+region_rect = Rect2( 0, 0, 64, 88 )
+
+[node name="Number3" type="Node2D" parent="CanvasLayer/Base"]
+position = Vector2( 217.142, -0.446869 )
+scale = Vector2( 1.38807, 1.02329 )
+
+[node name="Highlight" type="Sprite" parent="CanvasLayer/Base/Number3"]
+self_modulate = Color( 0.47451, 0.964706, 0.564706, 0 )
+position = Vector2( -130, 0 )
+scale = Vector2( 1.47409, 1.3 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 80 )
+
+[node name="BaseOfNumber" type="Sprite" parent="CanvasLayer/Base/Number3/Highlight"]
+self_modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 80 )
+
+[node name="Number" type="Sprite" parent="CanvasLayer/Base/Number3/Highlight/BaseOfNumber"]
+self_modulate = Color( 0.8, 0.8, 0.8, 1 )
+scale = Vector2( 0.495286, 0.928983 )
+texture = ExtResource( 4 )
+hframes = 10
+region_rect = Rect2( 0, 0, 64, 88 )
+
+[node name="Number4" type="Node2D" parent="CanvasLayer/Base"]
+position = Vector2( 289.321, -0.446869 )
+scale = Vector2( 1.38807, 1.02329 )
+
+[node name="Highlight" type="Sprite" parent="CanvasLayer/Base/Number4"]
+self_modulate = Color( 0.47451, 0.964706, 0.564706, 0 )
+position = Vector2( -130, 0 )
+scale = Vector2( 1.47409, 1.3 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 80 )
+
+[node name="BaseOfNumber" type="Sprite" parent="CanvasLayer/Base/Number4/Highlight"]
+self_modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 32, 80 )
+
+[node name="Number" type="Sprite" parent="CanvasLayer/Base/Number4/Highlight/BaseOfNumber"]
+self_modulate = Color( 0.8, 0.8, 0.8, 1 )
+scale = Vector2( 0.495286, 0.928983 )
+texture = ExtResource( 4 )
+hframes = 10
+region_rect = Rect2( 0, 0, 64, 88 )

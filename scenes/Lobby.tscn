@@ -52,10 +52,11 @@ __meta__ = {
 }
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
-margin_left = 76.862
-margin_top = 46.5376
-margin_right = 171.862
-margin_bottom = 64.5376
+margin_left = 77.0
+margin_top = 46.0
+margin_right = 172.0
+margin_bottom = 65.0
+selecting_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
 }

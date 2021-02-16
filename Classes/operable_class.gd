@@ -2,6 +2,7 @@ extends StaticBody2D
 
 remote var is_free=true
 remote var is_done=false
+remote var is_first=true
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

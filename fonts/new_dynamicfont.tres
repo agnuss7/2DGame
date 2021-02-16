@@ -1,4 +1,6 @@
 [gd_resource type="DynamicFont" format=2]
 
 [resource]
-size = 25
+size = 8
+use_mipmaps = true
+use_filter = true

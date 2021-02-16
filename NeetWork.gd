@@ -47,7 +47,14 @@ func _connected_to_server():
 remote func _request_player_info(request_from_id, player_id):
 	if get_tree().is_network_server():
 		rpc_id(request_from_id, '_send_player_info', player_id, players[player_id])
-	print('request player onifo')
+	print('request player info')
+
+remote func _request_all_players(request_from_id):
+	if get_tree().is_network_server():
+		for peer_id in players:
+			if( peer_id != request_from_id):
+				rpc_id(request_from_id, '_send_player_info', peer_id, players[peer_id])
+				
 
 remote func _send_player_info(id, info):
 	players[id] = info
@@ -56,4 +63,5 @@ remote func _send_player_info(id, info):
 	new_player.set_network_master(id)
 	$'/root/Node2D/YSort/'.add_child(new_player)
 	print('send info')
-	# new_player.init(info.name, info.position, true)
+	new_player.init()
+	#new_player.init(info.name, info.position, true)

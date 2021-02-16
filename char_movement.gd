@@ -107,9 +107,22 @@ func get_operate_input():
 				return
 
 func _ready():
-	position=NeetWork.player_info.position
 	print (NeetWork.players[int(name)].nick_name+" has joined")
 
+func init():
+	var level=get_node("/root/Node2D")
+	if(get_tree().is_network_server()):
+		for i in range(0,level.no_of_places):
+			if !level.places[i].taken:
+				NeetWork.player_info.position=level.places[i].position
+				position=level.places[i].position
+				level.places[i].taken=true
+				return
+	else:
+		level.rpc_id(1,"request_place",get_tree().get_network_unique_id())
+		position=NeetWork.player_info.position
+		
+		
 func _physics_process(delta):
 	if is_network_master():
 		if control_enabled:

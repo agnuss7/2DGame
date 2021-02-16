@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://Classes/overlay_class.gd"
 
 
 enum numbers {
@@ -16,7 +16,6 @@ var selected_number_node
 var correct_code="9999"
 var current_code="0000"
 
-var operable_node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -77,17 +76,6 @@ func turn_off_highlights():
 	third_number.self_modulate.a=0
 	fourth_number.self_modulate.a=0
 
-func _close():
-	
-	var nod=get_node("/root/Node2D/YSort/"+str(get_tree().get_network_unique_id()))
-	#var nod2=get_node("/root/Node2D/YSort/"+operable_node)
-	nod.control_enabled=true
-	operable_node.rset("is_free",true)
-	self.queue_free()
-	
-func pass_operable_name(var n):
-	operable_node=n
-
 func pass_correct_code(var s):
 	correct_code=s
 
@@ -97,12 +85,12 @@ func check_for_success():
 
 func _success():
 	#var nod2=get_node("/root/Node2D/YSort/"+operable_node)
-	operable_node.rset("is_done",true)
-	_close()
+	.set_operable_done()
+	._close()
 
 func _process(delta):
 	get_input_for_highlight()
 	get_input_for_number()
 	if(Input.is_action_just_pressed("cancel")):
-		_close()
+		._close()
 	check_for_success()

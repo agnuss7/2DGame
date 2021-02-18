@@ -1,0 +1,118 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scenes/TrialSceneScript.gd" type="Script" id=1]
+[ext_resource path="res://Trialoperable.gd" type="Script" id=2]
+[ext_resource path="res://sprites/fsmsteam01_b.png" type="Texture" id=3]
+[ext_resource path="res://Other/TrialBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/doors2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/tilea3 Modern Exterior Suburban MV cr GrandmaDeb 10-5-15_zpsjplvn4zq.png" type="Texture" id=6]
+[ext_resource path="res://Other/Door.gd" type="Script" id=7]
+[ext_resource path="res://sprites/writing1.png" type="Texture" id=8]
+[ext_resource path="res://sprites/writing2.png" type="Texture" id=9]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=4]
+0/name = "tilea3 Modern Exterior Suburban MV cr GrandmaDeb 10-5-15_zpsjplvn4zq.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 16, 288, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 7.90114, 7.01612 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8.00627, 15.169 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+position = Vector2( -46.5817, -51.4331 )
+
+[node name="WASD" type="Sprite" parent="."]
+self_modulate = Color( 0.462745, 0.372549, 0.0784314, 1 )
+position = Vector2( -90.9407, -37.1308 )
+scale = Vector2( 0.183663, 0.183663 )
+texture = ExtResource( 8 )
+
+[node name="E" type="Sprite" parent="."]
+self_modulate = Color( 0.611765, 0.533333, 0.4, 1 )
+position = Vector2( 5.61636, -32.8175 )
+rotation = 0.281141
+scale = Vector2( 0.232535, 0.232535 )
+texture = ExtResource( 9 )
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = SubResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -589836, 0, 0, -589835, 0, 0, -589834, 0, 0, -589833, 0, 0, -589832, 0, 0, -589831, 0, 0, -589830, 0, 0, -589829, 0, 0, -589828, 0, 0, -589827, 0, 0, -589826, 0, 0, -589825, 0, 0, -655360, 0, 0, -655359, 0, 0, -655358, 0, 0, -655357, 0, 0, -655356, 0, 0, -655355, 0, 0, -655354, 0, 0, -524300, 0, 0, -524299, 0, 0, -524298, 0, 0, -524297, 0, 0, -524296, 0, 0, -524295, 0, 0, -524294, 0, 0, -524293, 0, 0, -524292, 0, 0, -524291, 0, 0, -524290, 0, 0, -524289, 0, 0, -589824, 0, 0, -589823, 0, 0, -589822, 0, 0, -589821, 0, 0, -589820, 0, 0, -589819, 0, 0, -589818, 0, 0, -458764, 0, 0, -458763, 0, 0, -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -458757, 0, 0, -458756, 0, 0, -458755, 0, 0, -458754, 0, 0, -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 0, 0, -524285, 0, 0, -524284, 0, 0, -524283, 0, 0, -524282, 0, 0, -393228, 0, 0, -393227, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -327692, 0, 0, -327691, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -262156, 0, 0, -262155, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -196620, 0, 0, -196619, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -131084, 0, 0, -131083, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -65548, 0, 0, -65547, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -12, 0, 0, -11, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, 65524, 0, 0, 65525, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 131060, 0, 0, 131061, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 196596, 0, 0, 196597, 0, 0, 196598, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Panel" type="StaticBody2D" parent="YSort"]
+position = Vector2( -101.066, -122.147 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Panel"]
+position = Vector2( 1.25, 0 )
+texture = ExtResource( 3 )
+hframes = 2
+frame = 1
+region_enabled = true
+region_rect = Rect2( 256, 0, 32, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Panel"]
+position = Vector2( 1.43502, 0.970688 )
+shape = SubResource( 5 )
+
+[node name="Door" type="StaticBody2D" parent="YSort"]
+position = Vector2( 8.49374, -127.561 )
+script = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Door"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 64 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Door"]
+position = Vector2( 0, 0.166122 )
+shape = SubResource( 6 )

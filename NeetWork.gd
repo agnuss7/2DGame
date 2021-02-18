@@ -63,5 +63,4 @@ remote func _send_player_info(id, info):
 	new_player.set_network_master(id)
 	$'/root/Node2D/YSort/'.add_child(new_player)
 	print('send info')
-	new_player.init()
-	#new_player.init(info.name, info.position, true)
+

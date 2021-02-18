@@ -85,7 +85,7 @@ func check_for_success():
 
 func _success():
 	#var nod2=get_node("/root/Node2D/YSort/"+operable_node)
-	.set_operable_done()
+	operable_node.set_done()
 	._close()
 
 func _process(delta):

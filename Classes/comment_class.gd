@@ -16,9 +16,11 @@ func next_comment():
 		current_comment+=1
 		commentLabel.text=commentArray[current_comment]
 	else:
-		._close()
+		end_of_array()
 		
-
+func end_of_array():
+	._close()
+	
 func pass_comments(var com):
 	commentArray=com
 	commentLabel.text=commentArray[current_comment]

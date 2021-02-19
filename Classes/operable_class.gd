@@ -11,6 +11,4 @@ func set_done():
 	is_done=true
 	rset("is_done",true)
 
-func _ready():
-	pass # Replace with function body.
 

@@ -21,9 +21,10 @@ func _operate():
 		node.add_child(overlay2)
 		overlay2.pass_operable(self)
 	#overlay.pass_correct_code("9999")
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+func set_done():
+	.set_done()
+	var door=get_node("/root/Node2D/YSort/Door")
+	door.unlock()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

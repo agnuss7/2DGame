@@ -12,6 +12,9 @@ func Load_level_one():
 func Load_level(var nr):
 	get_tree().change_scene("res://Levels/Level"+str(nr)+".tscn")
 
+func next_level():
+	pass
+
 func _ready():
 	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')
 	get_tree().connect('server_disconnected', self, '_on_server_disconnected')

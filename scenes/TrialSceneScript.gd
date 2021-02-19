@@ -3,6 +3,7 @@ const no_of_places=3
 remote var places=[Vector2(0,0), Vector2(30,0), Vector2(-30,0)]
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().connect('network_peer_connected', self, 'sync_level')
 	var player=load("res://Player/Player.tscn").instance()
 	var u_id=get_tree().get_network_unique_id()
 	player.name=str(u_id)
@@ -17,6 +18,8 @@ func _ready():
 #	$'/root/Node2D'.add_child(y)
 	$'/root/Node2D/YSort'.add_child(player)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func sync_level(var id):
+	print("sunc_level")
+	if get_tree().is_network_server():
+		var node=get_node("/root/Node2D/YSort/Panel")
+		node.rset("is_done",node.is_done)

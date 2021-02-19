@@ -11,8 +11,7 @@ func end_of_array():
 
 func pass_next_overlay(var o):
 	next_overlay=o
-func _ready():
-	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

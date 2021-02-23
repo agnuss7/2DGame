@@ -97,7 +97,6 @@ func set_area_position():
 
 func get_operate_input():
 	if Input.is_action_just_pressed("operate"):
-		#print(get_tree().get_root().get_child(2).get_children())
 		var area=get_node("Area2D")
 		var list=area.get_overlapping_bodies()
 		for bod in list:
@@ -110,7 +109,9 @@ func get_operate_input():
 func _ready():
 	pass
 
-
+remote func init():
+	position=$'/root/Node2D'.places[LevelLoader.line_number]
+	print(position)
 		
 func _physics_process(delta):
 	if is_network_master():

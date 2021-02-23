@@ -1,6 +1,6 @@
 extends "res://Classes/operable_class.gd"
 
-var is_open=false
+var is_open=true
 
 func _operate():
 	._operate()
@@ -11,6 +11,8 @@ func _operate():
 		node.add_child(overlay)
 		overlay.pass_comments(["","The door is locked."])
 	else:
+		LevelLoader.rpc('next_level')
+		print(NeetWork.players)
 		LevelLoader.next_level()
 
 func unlock():

@@ -35,12 +35,12 @@ func Load_level(var u_id):
 	
 func _host_button_pressed():
 	NeetWork.host_game(text.text)
-	LevelLoader.Load_level(1)
+	LevelLoader.Load_level(LevelLoader.current_level)
 	self.queue_free()
 	
 func _join_button_pressed():
 	NeetWork.join_game(NeetWork.ip, text.text)
-	LevelLoader.Load_level(1)
+	LevelLoader.Load_level(LevelLoader.current_level)
 	self.queue_free()
 	
 	

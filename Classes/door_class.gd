@@ -1,6 +1,6 @@
 extends "res://Classes/operable_class.gd"
 
-var is_open=true
+remote var is_open=false
 
 func _operate():
 	._operate()

@@ -17,6 +17,7 @@ func init():
 			new_player.name = str(i)
 			new_player.set_network_master(i)
 			$'/root/Node2D/YSort/'.add_child(new_player)
+			
 func transition():
 	var player=load("res://Player/Player.tscn").instance()
 	var u_id=get_tree().get_network_unique_id()

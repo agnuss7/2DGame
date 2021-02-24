@@ -1,5 +1,5 @@
 extends Node
-remote var current_level=2
+remote var current_level=1
 remote var line_number=0
 
 func Load_level_one():
@@ -45,5 +45,5 @@ func sync_level_number(var u_id):
 	print ("sync level nr")
 	if get_tree().is_network_server():
 		rset_id(u_id,"current_level",current_level)
-		rset_id(u_id,"line_number",NeetWork.players.size()-1)
+		#rset_id(u_id,"line_number",NeetWork.players.size()-1)
 		rpc_id(u_id,"Load_level",current_level)

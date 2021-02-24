@@ -32,9 +32,9 @@ align = 1
 uppercase = true
 
 [node name="HostButton" type="Button" parent="CanvasLayer"]
-margin_left = 65.2664
+margin_left = 60.0223
 margin_top = 73.8349
-margin_right = 117.266
+margin_right = 112.022
 margin_bottom = 93.8349
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,11 +52,21 @@ __meta__ = {
 }
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
-margin_left = 77.0
+margin_left = 109.214
 margin_top = 46.0
-margin_right = 172.0
+margin_right = 204.214
 margin_bottom = 65.0
 selecting_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 34.3186
+margin_top = 48.6051
+margin_right = 102.319
+margin_bottom = 62.6051
+text = "Nick name:"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -10,7 +10,7 @@ func _operate():
 	
 	var overlay=load("res://Other/CommentSpaceBeforeOverlay.tscn").instance()
 	var overlay2=load("res://scenes/TrialOverlay.tscn").instance()
-	overlay2.pass_correct_code("3225")
+	overlay2.pass_correct_code("4312")
 	if(is_first):
 		node.add_child(overlay)
 		overlay.pass_operable(self)
@@ -26,7 +26,8 @@ func set_done():
 	var door=get_node("/root/Node2D/YSort/Door")
 	door.unlock()
 
-
+remote func set_lock_done():
+	get_node("Sprite").frame=0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

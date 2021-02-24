@@ -34,4 +34,7 @@ remote func sync_level(var id):
 #		get_node('/root/Node2D/YSort/'+str(id)).rpc_id(id,'init')
 		var node=get_node("/root/Node2D/YSort/Panel")
 		node.rset_id(id,"is_done",node.is_done)
-		node.get_node("Sprite").rset_id(id,"frame",node.get_node("Sprite").frame)
+		if node.is_done:
+			node.rpc('set_lock_done')
+		var d=get_node("YSort/Door")
+		d.rset_id(id,"is_open",d.is_open)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/TrialSceneScript.gd" type="Script" id=1]
 [ext_resource path="res://Trialoperable.gd" type="Script" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Other/Door.gd" type="Script" id=7]
 [ext_resource path="res://sprites/writing1.png" type="Texture" id=8]
 [ext_resource path="res://sprites/writing2.png" type="Texture" id=9]
+[ext_resource path="res://Other/Log.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/lock_part.png" type="Texture" id=11]
+[ext_resource path="res://Other/Note.gd" type="Script" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -60,6 +63,9 @@ extents = Vector2( 7.90114, 7.01612 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8.00627, 15.169 )
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 4.14821, 5.22688 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -84,6 +90,8 @@ tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -589836, 0, 0, -589835, 0, 0, -589834, 0, 0, -589833, 0, 0, -589832, 0, 0, -589831, 0, 0, -589830, 0, 0, -589829, 0, 0, -589828, 0, 0, -589827, 0, 0, -589826, 0, 0, -589825, 0, 0, -655360, 0, 0, -655359, 0, 0, -655358, 0, 0, -655357, 0, 0, -655356, 0, 0, -655355, 0, 0, -655354, 0, 0, -524300, 0, 0, -524299, 0, 0, -524298, 0, 0, -524297, 0, 0, -524296, 0, 0, -524295, 0, 0, -524294, 0, 0, -524293, 0, 0, -524292, 0, 0, -524291, 0, 0, -524290, 0, 0, -524289, 0, 0, -589824, 0, 0, -589823, 0, 0, -589822, 0, 0, -589821, 0, 0, -589820, 0, 0, -589819, 0, 0, -589818, 0, 0, -458764, 0, 0, -458763, 0, 0, -458762, 0, 0, -458761, 0, 0, -458760, 0, 0, -458759, 0, 0, -458758, 0, 0, -458757, 0, 0, -458756, 0, 0, -458755, 0, 0, -458754, 0, 0, -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 0, 0, -524285, 0, 0, -524284, 0, 0, -524283, 0, 0, -524282, 0, 0, -393228, 0, 0, -393227, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -327692, 0, 0, -327691, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -262156, 0, 0, -262155, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -196620, 0, 0, -196619, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -131084, 0, 0, -131083, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -65548, 0, 0, -65547, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -12, 0, 0, -11, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, 65524, 0, 0, 65525, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 131060, 0, 0, 131061, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 196596, 0, 0, 196597, 0, 0, 196598, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0 )
+
+[node name="Log" parent="." instance=ExtResource( 10 )]
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -116,3 +124,14 @@ region_rect = Rect2( 0, 0, 32, 64 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Door"]
 position = Vector2( 0, 0.166122 )
 shape = SubResource( 6 )
+
+[node name="Note" type="StaticBody2D" parent="YSort"]
+position = Vector2( 35.0018, -121.622 )
+script = ExtResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Note"]
+scale = Vector2( 0.251163, 0.14742 )
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Note"]
+shape = SubResource( 7 )

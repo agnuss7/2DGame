@@ -1,10 +1,6 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var text
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,15 +28,17 @@ func Load_level(var u_id):
 #	$'/root/Node2D'.add_child(y)
 	$'/root/Node2D/YSort'.add_child(player)
 
-	
+
 func _host_button_pressed():
 	NeetWork.host_game(text.text)
 	LevelLoader.Load_level(LevelLoader.current_level)
 	self.queue_free()
 	
+	
 func _join_button_pressed():
-	NeetWork.join_game(NeetWork.ip, text.text)
-	LevelLoader.Load_level(LevelLoader.current_level)
+	var jjoin=load("res://Other/SecondJoin.tscn").instance()
+	jjoin.pass_name(text.text)
+	get_parent().add_child(jjoin)
 	self.queue_free()
 	
 	

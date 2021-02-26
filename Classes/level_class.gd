@@ -38,3 +38,4 @@ remote func sync_level(var id):
 	if get_tree().is_network_server():
 		LevelLoader.rset_id(id,"line_number",NeetWork.players.size()-1)
 		get_node('/root/Node2D/YSort/'+str(id)).rpc_id(id,'init')
+		Inventory.rset_id(id,'inventory',Inventory.inventory)

@@ -17,3 +17,4 @@ func _operate():
 
 func unlock():
 	is_open=true
+	rset('is_open',true)

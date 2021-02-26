@@ -95,6 +95,55 @@ func set_area_position():
 	else:
 		area_col.position=Vector2(0,-16)
 
+var inventory_mode=false
+var inventory_number=0
+
+func no_effect():
+	control_enabled=false
+	var overlay=load("res://Other/CommentSpace.tscn").instance()
+	$'/root/Node2D'.add_child(overlay)
+	overlay.pass_operable(self)
+	overlay.pass_comments(["","There's no effect"])
+	inventory_mode=false
+	inventory_number=0
+	$'InventoryIcon'.texture=null
+
+
+func get_operate_with_input():
+	if Input.is_action_just_pressed("operate"):
+		var area=get_node("Area2D")
+		var list=area.get_overlapping_bodies()
+		for bod in list:
+			if bod.has_method("_operate_with") and bod.is_free and !bod.is_done:
+				if (bod._operate_with(Inventory.inventory[inventory_number])):
+					control_enabled=false
+					inventory_mode=false
+					inventory_number=0
+					$'InventoryIcon'.texture=null
+					return
+				else:
+					no_effect()
+					return
+		no_effect()
+
+func get_inventory_input():
+	if Input.is_action_just_pressed("inventory"):
+		if !inventory_mode:
+			if !Inventory.inventory.empty():
+				inventory_mode=true
+				$'InventoryIcon'.texture=load(str(Inventory.global_inventory[Inventory.inventory[inventory_number]].texture))
+		else:
+			if(inventory_number<Inventory.inventory.size()-1):
+				inventory_number+=1
+				$'InventoryIcon'.texture=load(str(Inventory.global_inventory[Inventory.inventory[inventory_number]].texture))
+			else:
+				inventory_number=0
+				$'InventoryIcon'.texture=load(str(Inventory.global_inventory[Inventory.inventory[inventory_number]].texture))
+	if Input.is_action_just_pressed("cancel") and inventory_mode:
+		inventory_mode=false
+		inventory_number=0
+		$'InventoryIcon'.texture=null
+
 func get_operate_input():
 	if Input.is_action_just_pressed("operate"):
 		var area=get_node("Area2D")
@@ -120,7 +169,11 @@ func _physics_process(delta):
 			velocity = move_and_slide(velocity)
 			animations()
 			set_area_position()
-			get_operate_input()
+			if (!inventory_mode):
+				get_operate_input()
+			else:
+				get_operate_with_input()
+			get_inventory_input()
 	else:
 		position=r_position
 		set_r_animations()

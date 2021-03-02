@@ -54,6 +54,8 @@ func check_success():
 		operable_node.is_done=true
 		.set_operable_done()
 		._close()
+		var nod=get_node("/root/Node2D/YSort/"+str(get_tree().get_network_unique_id()))
+		nod.control_enabled=false
 		var overlay=load("res://Other/CommentSpace.tscn").instance()
 		$'/root/Node2D'.add_child(overlay)
 		overlay.pass_comments(["...the machine printed out a card","Picked up "+Inventory.global_inventory[1].name])
@@ -65,4 +67,4 @@ func _process(delta):
 	get_vertical_input()
 	check_success()
 	if (Input.is_action_just_pressed("cancel")):
-		._cancel()
+		._close()

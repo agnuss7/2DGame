@@ -8,16 +8,19 @@ func _ready():
 remote func sync_level(var id):
 	.sync_level(id)
 	if get_tree().is_network_server():
-		rpc_id(id,'sync_in_progress',iron_key,$'/root/Node2D/YSort/Gauges'.is_ignited,$'/root/Node2D/YSort/Gauges'.is_done)
+		rpc_id(id,'sync_in_progress',
+		iron_key,$'/root/Node2D/YSort/Gauges'.is_ignited,
+		$'/root/Node2D/YSort/Gauges'.is_done,
+		$'/root/Node2D/YSort/Plate'.code_complete)
 
-remote func sync_in_progress(var i_key, var ignited, var gauge_done):
+remote func sync_in_progress(var i_key, var ignited, var gauge_done, var plate_complete):
 	iron_key=i_key
 	if (!i_key):
 		var key=$'YSort/Key'
 		key.queue_free()
 	$'/root/Node2D/YSort/Gauges'.is_ignited=ignited
 	$'/root/Node2D/YSort/Gauges'.is_done=gauge_done
-	
+	$'/root/Node2D/YSort/Plate'.code_complete=plate_complete
 	
 
 

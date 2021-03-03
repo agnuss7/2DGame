@@ -30,7 +30,7 @@ __meta__ = {
 }
 
 [node name="Highlight1" type="Sprite" parent="CanvasLayer/Base"]
-self_modulate = Color( 0.443137, 0.996078, 0.45098, 1 )
+self_modulate = Color( 0.443137, 0.996078, 0.45098, 0 )
 position = Vector2( -64.1376, -33.1076 )
 scale = Vector2( 3.26182, 0.572661 )
 texture = ExtResource( 5 )
@@ -42,7 +42,7 @@ texture = ExtResource( 3 )
 hframes = 3
 
 [node name="Highlight2" type="Sprite" parent="CanvasLayer/Base"]
-self_modulate = Color( 0.443137, 0.996078, 0.45098, 1 )
+self_modulate = Color( 0.443137, 0.996078, 0.45098, 0 )
 position = Vector2( 57.0403, -33.0152 )
 scale = Vector2( 3.26182, 0.572661 )
 texture = ExtResource( 5 )
@@ -54,7 +54,7 @@ texture = ExtResource( 2 )
 hframes = 3
 
 [node name="Highlight3" type="Sprite" parent="CanvasLayer/Base"]
-self_modulate = Color( 0.45098, 0.996078, 0.45098, 1 )
+self_modulate = Color( 0.45098, 0.996078, 0.45098, 0 )
 position = Vector2( -63.9169, 15.7736 )
 scale = Vector2( 3.26182, 0.572661 )
 texture = ExtResource( 5 )
@@ -66,7 +66,7 @@ texture = ExtResource( 1 )
 hframes = 3
 
 [node name="Highlight4" type="Sprite" parent="CanvasLayer/Base"]
-self_modulate = Color( 0.45098, 0.996078, 0.45098, 1 )
+self_modulate = Color( 0.45098, 0.996078, 0.45098, 0 )
 position = Vector2( 57.0403, 16.2212 )
 scale = Vector2( 3.26182, 0.572661 )
 texture = ExtResource( 5 )

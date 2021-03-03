@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://sprites/fsmsteam01_b.png" type="Texture" id=1]
 [ext_resource path="res://sprites/tilea3 Modern Exterior Suburban MV cr GrandmaDeb 10-5-15_zpsjplvn4zq.png" type="Texture" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://Operables/lvl2Bottles.gd" type="Script" id=13]
 [ext_resource path="res://Operables/OilCan.gd" type="Script" id=14]
 [ext_resource path="res://sprites/oil.png" type="Texture" id=15]
+[ext_resource path="res://sprites/lock_part.png" type="Texture" id=16]
+[ext_resource path="res://Overlays/lvl2OrganPoster.gd" type="Script" id=17]
+[ext_resource path="res://Operables/lvl2Skeleton.gd" type="Script" id=18]
+[ext_resource path="res://Operables/lvl2Panel.gd" type="Script" id=19]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilea3 Modern Exterior Suburban MV cr GrandmaDeb 10-5-15_zpsjplvn4zq.png 0"
@@ -52,6 +56,12 @@ extents = Vector2( 8.05669, 5.99529 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 6.95713, 7.34623 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 16.7589, 40.7305 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 15.5979, 7.48401 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -137,14 +147,16 @@ script = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="YSort/Door"]
 texture = ExtResource( 11 )
+vframes = 2
 region_enabled = true
-region_rect = Rect2( 128, 0, 16, 16 )
+region_rect = Rect2( 128, 0, 16, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Door"]
 shape = SubResource( 6 )
 
 [node name="Skeleton" type="StaticBody2D" parent="YSort"]
 position = Vector2( -3.67081, 58.0655 )
+script = ExtResource( 18 )
 
 [node name="Sprite" type="Sprite" parent="YSort/Skeleton"]
 texture = ExtResource( 1 )
@@ -166,6 +178,31 @@ texture = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/OilCan"]
 shape = SubResource( 8 )
+
+[node name="Poster" type="StaticBody2D" parent="YSort"]
+modulate = Color( 1, 0.92549, 0.576471, 1 )
+position = Vector2( 36.0217, -130.844 )
+scale = Vector2( 0.423091, 0.215163 )
+script = ExtResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Poster"]
+texture = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Poster"]
+shape = SubResource( 9 )
+
+[node name="Panel" type="StaticBody2D" parent="YSort"]
+position = Vector2( 255.184, 95.2206 )
+script = ExtResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Panel"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 0, 32, 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Panel"]
+position = Vector2( 0, 8.01809 )
+shape = SubResource( 10 )
 
 [node name="Wall" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )

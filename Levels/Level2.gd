@@ -12,9 +12,13 @@ remote func sync_level(var id):
 		rpc_id(id,'sync_in_progress',
 		iron_key,oil_can,$'/root/Node2D/YSort/Gauges'.is_ignited,
 		$'/root/Node2D/YSort/Gauges'.is_done,
-		$'/root/Node2D/YSort/Plate'.code_complete)
+		$'/root/Node2D/YSort/Plate'.code_complete,
+		$'/root/Node2D/YSort/Skeleton'.rusted,
+		$'/root/Node2D/YSort/Panel'.card_read,
+		$'/root/Node2D/YSort/Panel'.is_done,
+		$'/root/Node2D/YSort/Door'.is_open)
 
-remote func sync_in_progress(var i_key, var oil, var ignited, var gauge_done, var plate_complete):
+remote func sync_in_progress(var i_key, var oil, var ignited, var gauge_done, var plate_complete, var skel_rust,var panel_card,var panel_done,var door_unlock):
 	iron_key=i_key
 	if (!i_key):
 		var key=$'YSort/Key'
@@ -26,8 +30,13 @@ remote func sync_in_progress(var i_key, var oil, var ignited, var gauge_done, va
 	$'/root/Node2D/YSort/Gauges'.is_ignited=ignited
 	$'/root/Node2D/YSort/Gauges'.is_done=gauge_done
 	$'/root/Node2D/YSort/Plate'.code_complete=plate_complete
+	$'/root/Node2D/YSort/Skeleton'.rusted=skel_rust
+	$'/root/Node2D/YSort/Panel'.card_read=panel_card
+	$'/root/Node2D/YSort/Panel'.is_done=panel_done
+	$'/root/Node2D/YSort/Door'.is_open=door_unlock
+	if door_unlock:
+		$'/root/Node2D/YSort/Door'.unlock_anim()
 	
-
 
 
 

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Lobby.gd" type="Script" id=1]
+[ext_resource path="res://sprites/ddt5r2m-38b8c791-a12b-460a-bf2b-42128353e4a2.png" type="Texture" id=2]
+[ext_resource path="res://sprites/arrow_yellow.png" type="Texture" id=3]
+[ext_resource path="res://sprites/arrow_greyish.png" type="Texture" id=4]
 
 [node name="Control" type="Control"]
 margin_left = 124.735
@@ -15,10 +18,10 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="JoinButton" type="Button" parent="CanvasLayer"]
-margin_left = 131.862
-margin_top = 73.5376
-margin_right = 183.862
-margin_bottom = 93.5376
+margin_left = 133.644
+margin_top = 103.828
+margin_right = 185.644
+margin_bottom = 123.828
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,12 +33,15 @@ margin_bottom = 19.0
 text = "JOIN"
 align = 1
 uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HostButton" type="Button" parent="CanvasLayer"]
-margin_left = 60.0223
-margin_top = 73.8349
-margin_right = 112.022
-margin_bottom = 93.8349
+margin_left = 61.8041
+margin_top = 104.125
+margin_right = 113.804
+margin_bottom = 124.125
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -52,21 +58,62 @@ __meta__ = {
 }
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
-margin_left = 109.214
-margin_top = 46.0
-margin_right = 204.214
-margin_bottom = 65.0
-selecting_enabled = false
+anchor_right = 0.082
+margin_left = 118.42
+margin_top = 77.7048
+margin_right = 213.42
+margin_bottom = 96.7048
+text = "Player"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = 34.3186
-margin_top = 48.6051
-margin_right = 102.319
-margin_bottom = 62.6051
+margin_left = 43.525
+margin_top = 80.3099
+margin_right = 115.525
+margin_bottom = 94.3099
 text = "Nick name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 169.148, 47.4044 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
+
+[node name="SpriteButtonRight" type="TextureButton" parent="CanvasLayer"]
+margin_left = 188.45
+margin_top = 32.9755
+margin_right = 228.45
+margin_bottom = 72.9755
+rect_scale = Vector2( 1.35064, 1.83774 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpriteButtonLeft" type="TextureButton" parent="CanvasLayer"]
+margin_left = 151.66
+margin_top = 32.9068
+margin_right = 191.66
+margin_bottom = 72.9068
+rect_scale = Vector2( -1.30912, 1.87592 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 39.7448
+margin_top = 39.6188
+margin_right = 123.745
+margin_bottom = 53.6188
+text = "Player sprite:"
 __meta__ = {
 "_edit_use_anchors_": false
 }

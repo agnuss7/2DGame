@@ -5,15 +5,16 @@ const DEFAULT_PORT=10567
 const MAX_PEERS=2
 const ip="127.0.0.1"
 
-var player_info = {nick_name='', position=Vector2()}
+var player_info = {nick_name='', position=Vector2(), sprite_name='Player'}
 var players={}
 
 func _ready():
 	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')
 	get_tree().connect('network_peer_connected', self, '_on_player_connected')
 	
-func host_game(new_player_name):
+func host_game(new_player_name, sprite_name):
 	player_info.nick_name = new_player_name
+	player_info.sprite_name=sprite_name
 	players[1]=player_info
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_server(DEFAULT_PORT, MAX_PEERS)
@@ -21,8 +22,9 @@ func host_game(new_player_name):
 	print('host game')
 
 
-func join_game(ip, new_player_name):
+func join_game(ip, new_player_name,sprite_name):
 	player_info.nick_name = new_player_name
+	player_info.sprite_name=sprite_name
 	get_tree().connect('connected_to_server', self, '_connected_to_server')
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_client(ip, DEFAULT_PORT)
@@ -58,7 +60,7 @@ remote func _request_all_players(request_from_id):
 
 remote func _send_player_info(id, info):
 	players[id] = info
-	var new_player = load('res://Player/Player.tscn').instance()
+	var new_player = load('res://Player/'+info.sprite_name+'.tscn').instance()
 	new_player.name = str(id)
 	new_player.set_network_master(id)
 	$'/root/Node2D/YSort/'.add_child(new_player)

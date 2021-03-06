@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 const sprite_textures=["ddt5r2m-38b8c791-a12b-460a-bf2b-42128353e4a2.png","ddt5nnu-f656ddbf-0a9e-46d6-abc2-771b6bcb964e.png","ddt5r11-d7e61b3a-9312-47bc-9d99-71563e4a0c1e.png"]
 var current_selected=0
@@ -50,13 +50,14 @@ func _on_left_pressed():
 func player_sprite_name():
 	if (current_selected==0):
 		return "Player"
-	elif (current_selected>0 and current_selected<3):
+	elif (current_selected>0 and current_selected<sprite_textures.size()):
 		return "Player"+str(current_selected+1)
 	else:
 		return "Player"
 	
 func _host_button_pressed():
 	NeetWork.host_game(text.text,player_sprite_name())
+	LevelLoader.current_level=1
 	LevelLoader.Load_level(LevelLoader.current_level)
 	self.queue_free()
 	

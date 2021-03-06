@@ -155,6 +155,11 @@ func get_operate_input():
 				control_enabled=false
 				return
 
+func get_menu_input():
+	if(Input.is_action_just_pressed("quit")):
+		control_enabled=false
+		$'/root/Node2D'.add_child(load("res://Overlays/Menu.tscn").instance())
+
 func _ready():
 	pass
 
@@ -174,6 +179,7 @@ func _physics_process(delta):
 			else:
 				get_operate_with_input()
 			get_inventory_input()
+			get_menu_input()
 	else:
 		position=r_position
 		set_r_animations()

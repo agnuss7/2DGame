@@ -32,6 +32,7 @@ func join_game(ip, new_player_name,sprite_name):
 	print('join game')
 
 func _on_player_disconnected(id):
+	$'/root/Node2D/Log'.nick_disconnected(players[id].nick_name)
 	players.erase(id)
 
 func _on_player_connected(connected_player_id):

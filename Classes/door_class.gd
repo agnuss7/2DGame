@@ -9,7 +9,7 @@ func _operate():
 		var overlay=load("res://Other/CommentSpace.tscn").instance()
 		overlay.pass_operable(self)
 		node.add_child(overlay)
-		overlay.pass_comments(["","The door is locked."])
+		overlay.pass_comments(["The door is locked."])
 	else:
 		LevelLoader.rpc('next_level')
 		print(NeetWork.players)

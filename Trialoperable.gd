@@ -15,7 +15,7 @@ func _operate():
 		node.add_child(overlay)
 		overlay.pass_operable(self)
 		overlay.pass_next_overlay(overlay2)
-		overlay.pass_comments(["","There's a number lock bolted to the wall"])
+		overlay.pass_comments(["There's a number lock bolted to the wall"])
 		is_first=false
 	else:
 		node.add_child(overlay2)

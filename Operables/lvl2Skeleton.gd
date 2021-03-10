@@ -8,7 +8,7 @@ func _operate():
 		var over=load("res://Other/CommentSpace.tscn").instance()
 		over.pass_operable(self)
 		$'/root/Node2D'.add_child(over)
-		over.pass_comments(["","The skeleton is clutching something","But its wrist is rusted, you can't open it"])
+		over.pass_comments(["The skeleton is clutching something","But its wrist is rusted, you can't open it"])
 	else:
 		var node=get_node("/root/Node2D")
 		var overlay=load("res://Overlays/lvl2Humours.tscn").instance()
@@ -22,7 +22,7 @@ func _operate_with(nr):
 		var over=load("res://Other/CommentSpace.tscn").instance()
 		over.pass_operable(self)
 		$'/root/Node2D'.add_child(over)
-		over.pass_comments(["","The rusted hand can be opened","It was clutching a poster"])
+		over.pass_comments(["The rusted hand can be opened","It was clutching a poster"])
 		Inventory.inventory.erase(2)
 		Inventory.rset('inventory',Inventory.inventory)
 		return true

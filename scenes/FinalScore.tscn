@@ -28,9 +28,9 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="."]
 margin_left = 6.0
-margin_top = 55.0
+margin_top = 48.0
 margin_right = 251.0
-margin_bottom = 145.0
+margin_bottom = 146.0
 columns = 3
 __meta__ = {
 "_edit_use_anchors_": false

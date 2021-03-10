@@ -5,7 +5,7 @@ var item
 func _operate():
 	var overlay=load("res://Other/CommentSpace.tscn").instance()
 	$'/root/Node2D'.add_child(overlay)
-	overlay.pass_comments(["","Picked up "+Inventory.global_inventory[item].name])
+	overlay.pass_comments(["Picked up "+Inventory.global_inventory[item].name])
 	self.queue_free()
 	rpc('remove')
 	Inventory.inventory.append(item)

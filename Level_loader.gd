@@ -1,5 +1,5 @@
 extends Node
-remote var current_level=2
+remote var current_level=3
 remote var line_number=0
 const total_levels=3
 
@@ -18,12 +18,14 @@ remote func Load_level(var nr):
 func init_level():
 	var node=get_node("/root/Node2D")
 	node.init()
+	score=0
 
 func tran_level():
 	var node=get_node("/root/Node2D")
 	node.transition()
 	scores.append(score)
 	score=0
+	Inventory.inventory.clear()
 	
 func Transition_to_level(var nr):
 	get_tree().change_scene("res://Levels/Level"+str(nr)+".tscn")
@@ -58,15 +60,18 @@ func sync_level_number(var u_id):
 
 func final_score():
 	get_tree().change_scene("res://scenes/FinalScore.tscn")
-	scores.append(score)
-	var n=[]
-	for i in NeetWork.players:
-		n.append(NeetWork.players[i].nick_name)
-	call_deferred('give_names',n)
+	if get_tree().is_network_server():
+		scores.append(score)
+		var n=[]
+		for i in NeetWork.players:
+			n.append(NeetWork.players[i].nick_name)
+		call_deferred('give_names',n)
 	
 func _process(delta):
 	score+=delta
 
 func give_names(var nn):
-	$'/root/Node2D'.pass_names(nn,scores)
+	if get_tree().is_network_server():
+		$'/root/Node2D'.pass_names(nn,scores)
+		$'/root/Node2D'.rpc('pass_names',nn, scores)
 	

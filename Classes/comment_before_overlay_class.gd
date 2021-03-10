@@ -12,8 +12,3 @@ func end_of_array():
 func pass_next_overlay(var o):
 	next_overlay=o
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

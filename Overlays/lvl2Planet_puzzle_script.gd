@@ -1,5 +1,7 @@
 extends "res://Classes/overlay_class.gd"
 
+var is_operational=false
+
 var current_selected=1
 var current_selected_node
 var current_code="0000"
@@ -62,13 +64,16 @@ func check_for_success():
 		before.pass_operable(operable_node)
 		before.pass_next_overlay(after)
 		$'/root/Node2D'.add_child(before)
-		before.pass_comments(["The plate flipped and revealed some writting..."])
+		before.pass_comments(["The symbols on the plate changed to something different..."])
 		operable_node.set_code_complete()
 		
 
 func _process(delta):
 	get_move_input()
-	get_e_input()
+	if is_operational:
+		get_e_input()
+	else:
+		is_operational=true
 	if(Input.is_action_just_pressed("cancel")):
 		._close()
 	check_for_success()

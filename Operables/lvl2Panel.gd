@@ -22,7 +22,7 @@ func _operate_with(nr):
 		var overlay=load("res://Other/CommentSpace.tscn").instance()
 		overlay.pass_operable(self)
 		$'/root/Node2D'.add_child(overlay)
-		overlay.pass_comments(["","Swipping the card at the card reader activated the panel.","A password can now be enterred"])
+		overlay.pass_comments(["Swipping the card at the card reader activated the panel.","A password can now be enterred"])
 		Inventory.inventory.erase(1)
 		Inventory.rset('inventory',Inventory.inventory)
 		return true

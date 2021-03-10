@@ -4,6 +4,8 @@ var commentLabel
 var commentArray=Array()
 var current_comment=0
 
+var is_operational=false
+
 func _ready():
 	commentLabel=get_node("CanvasLayer/Label")
 	
@@ -26,4 +28,7 @@ func pass_comments(var com):
 	commentLabel.text=commentArray[current_comment]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	check_for_e()
+	if is_operational:
+		check_for_e()
+	else:
+		is_operational=true

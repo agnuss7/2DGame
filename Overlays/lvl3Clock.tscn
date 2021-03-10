@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/minute_hand.png" type="Texture" id=1]
+[ext_resource path="res://Overlays/ClockScript.gd" type="Script" id=2]
+[ext_resource path="res://sprites/clockface.png" type="Texture" id=3]
+[ext_resource path="res://sprites/hour_hand.png" type="Texture" id=4]
+[ext_resource path="res://sprites/lock_part.png" type="Texture" id=5]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+self_modulate = Color( 0.666667, 0.541176, 0.388235, 1 )
+position = Vector2( 128.038, 77.4947 )
+scale = Vector2( 5.55426, 2.0196 )
+texture = ExtResource( 5 )
+
+[node name="Face" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 125.037, 71.147 )
+scale = Vector2( 0.714563, 0.718162 )
+texture = ExtResource( 3 )
+offset = Vector2( 2.66177, 3.89634 )
+
+[node name="Hour" type="Sprite" parent="CanvasLayer/Face"]
+position = Vector2( 2.31368, 3.81934 )
+scale = Vector2( 0.508865, 0.508865 )
+texture = ExtResource( 4 )
+offset = Vector2( -10.8498, -44.4045 )
+
+[node name="Minute" type="Sprite" parent="CanvasLayer/Face"]
+position = Vector2( 2.12671, 3.49755 )
+scale = Vector2( 0.462531, 0.462531 )
+texture = ExtResource( 1 )
+offset = Vector2( 12.0658, -46.6055 )
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 62.5
+margin_top = 134.0
+margin_right = 238.5
+margin_bottom = 148.0
+text = "'A' for h, 'D' for min"
+__meta__ = {
+"_edit_use_anchors_": false
+}

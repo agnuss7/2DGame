@@ -73,8 +73,17 @@ func make_code():
 
 func check_for_success():
 	if current_code==correct_code:
-		._close()
+		success()
 
+func success():
+	._close()
+	operable_node.set_done()
+	operable_node.move_away()
+	var poster=get_node('/root/Node2D/YSort/Poster')
+	poster.is_operable=true
+	poster.rset('is_operable',true)
+	
+	
 
 func _process(delta):
 	if is_operational:

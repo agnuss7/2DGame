@@ -26,13 +26,26 @@ func _operate():
 func _operate_with(var item):
 	if(item==3 or item==4 or item==5):
 		._operate()
-		current_orb=item-2
-		Inventory.inventory.erase(item)
-		Inventory.rset('inventory',Inventory.inventory)
-		var overlay=load("res://Other/CommentSpace.tscn").instance()
-		overlay.pass_operable(self)
-		$'/root/Node2D'.add_child(overlay)
-		overlay.pass_comments(["Placed orb into hand"])
+		if current_orb==orbs.none:
+			current_orb=item-2
+			Inventory.inventory.erase(item)
+			Inventory.rset('inventory',Inventory.inventory)
+			var overlay=load("res://Other/CommentSpace.tscn").instance()
+			overlay.pass_operable(self)
+			$'/root/Node2D'.add_child(overlay)
+			overlay.pass_comments(["Placed orb into hand"])
+		else:
+			var overlay=load("res://Other/CommentSpace.tscn").instance()
+			overlay.pass_operable(self)
+			$'/root/Node2D'.add_child(overlay)
+			overlay.pass_comments(["The statue is already holding an orb."])
 		return true
 	else:
 		return false
+
+
+
+
+
+func _operate_super():
+	._operate()

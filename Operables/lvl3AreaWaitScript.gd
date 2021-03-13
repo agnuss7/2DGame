@@ -15,6 +15,7 @@ func waited():
 	var overlay=load("res://Other/CommentSpace.tscn").instance()
 	$'/root/Node2D'.add_child(overlay)
 	overlay.pass_comments(["There was a clicking somewhere."])
+	$'/root/Node2D/YSort/MinStatue'.unclutch()
 	
 func _process(delta):
 	if !done:

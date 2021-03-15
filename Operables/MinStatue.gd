@@ -13,13 +13,16 @@ func _operate():
 		$'/root/Node2D'.add_child(overlay)
 		overlay.pass_comments(["The statue is clutching its hand.","There must be a mechanism to open it","The pedestal says Min"])
 	else:
-		._operate_super()
-		var overlay=load("res://Other/CommentSpaceBeforeOverlay.tscn").instance()
-		var palm=load("res://Overlays/lvl3MinPalm.tscn").instance()
-		overlay.pass_operable(self)
-		overlay.pass_next_overlay(palm)
-		$'/root/Node2D'.add_child(overlay)
-		overlay.pass_comments(["There's something written on the statue's palm."])
+		if current_orb==orbs.none:
+			._operate_super()
+			var overlay=load("res://Other/CommentSpaceBeforeOverlay.tscn").instance()
+			var palm=load("res://Overlays/lvl3MinPalm.tscn").instance()
+			overlay.pass_operable(self)
+			overlay.pass_next_overlay(palm)
+			$'/root/Node2D'.add_child(overlay)
+			overlay.pass_comments(["There's a newspaper clipping in Min's palm."])
+		else:
+			._operate()
 		
 func _operate_with(var item):
 	if clutching:
@@ -33,7 +36,11 @@ func _operate_with(var item):
 		else:
 			return false
 	else:
-		._operate_with(item)
+		if (item==3 or item==4 or item==5):
+			._operate_with(item)
+			return true
+		else:
+			return false
 
 func unclutch():
 	clutching=false

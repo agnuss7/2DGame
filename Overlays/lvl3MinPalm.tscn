@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://sprites/note_inv.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Unnamed.png" type="Texture" id=1]
 [ext_resource path="res://Other/NoteOverlay.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
@@ -9,6 +9,6 @@ script = ExtResource( 2 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 130.814, 80.7578 )
-scale = Vector2( 0.11634, 0.111477 )
+position = Vector2( 156.901, 74.2111 )
+scale = Vector2( 0.122336, 0.130568 )
 texture = ExtResource( 1 )

@@ -6,7 +6,7 @@ remote var done=false
 func is_standing():
 	var player=get_node("../"+str(get_tree().get_network_unique_id()))
 	var list=self.get_overlapping_bodies()
-	if player in list:
+	if player in list and !player.inventory_mode:
 		return true
 	else:
 		return false

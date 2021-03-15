@@ -103,7 +103,7 @@ func no_effect():
 	var overlay=load("res://Other/CommentSpace.tscn").instance()
 	$'/root/Node2D'.add_child(overlay)
 	overlay.pass_operable(self)
-	overlay.pass_comments(["","There's no effect"])
+	overlay.pass_comments(["There's no effect"])
 	inventory_mode=false
 	inventory_number=0
 	$'InventoryIcon'.texture=null

@@ -1,7 +1,9 @@
 extends "res://Classes/level_class.gd"
 
+
 func _ready():
 	places=[Vector2(0,0),Vector2(20,0),Vector2(40,0)]
+
 
 remote func sync_level(var id):
 	.sync_level(id)
@@ -10,9 +12,10 @@ remote func sync_level(var id):
 		$'YSort/MinStatue'.clutching,
 		$'YSort/NilStatue'.current_orb,
 		$'YSort/MinStatue'.current_orb,
-		$'YSort/VimStatue'.current_orb)
+		$'YSort/VimStatue'.current_orb,
+		$'YSort/Clock'.is_done)
 	
-remote func sync_in_progress(var bookshelf_done, var poster_operable, var Min_clutch, var nil_orb, var min_orb, var vim_orb):
+remote func sync_in_progress(var bookshelf_done, var poster_operable, var Min_clutch, var nil_orb, var min_orb, var vim_orb, var clock_done):
 	$'YSort/Bookshelf'.is_done=bookshelf_done
 	if bookshelf_done:
 		$'YSort/Bookshelf'.has_moved()
@@ -21,3 +24,4 @@ remote func sync_in_progress(var bookshelf_done, var poster_operable, var Min_cl
 	$'YSort/NilStatue'.current_orb=nil_orb
 	$'YSort/MinStatue'.current_orb=min_orb
 	$'YSort/VimStatue'.current_orb=vim_orb
+	$'YSort/Clock'.is_done=clock_done

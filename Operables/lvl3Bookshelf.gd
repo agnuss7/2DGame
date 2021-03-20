@@ -27,6 +27,7 @@ remote func move_now():
 	tween.interpolate_property(self, "position",
 		initial_pos, new_pos, 0.5,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$AudioStreamPlayer.play(0.13)
 	tween.start()
 
 

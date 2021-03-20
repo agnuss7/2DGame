@@ -13,9 +13,21 @@ remote func sync_level(var id):
 		$'YSort/NilStatue'.current_orb,
 		$'YSort/MinStatue'.current_orb,
 		$'YSort/VimStatue'.current_orb,
-		$'YSort/Clock'.is_done)
+		$'YSort/NilStatue'.is_done,
+		$'YSort/MinStatue'.is_done,
+		$'YSort/VimStatue'.is_done,
+		$'YSort/Clock'.is_done,
+		$'YSort/Cabinet'.is_done,
+		$'YSort/Area2D'.done,
+		$'YSort/Door'.is_open)
 	
-remote func sync_in_progress(var bookshelf_done, var poster_operable, var Min_clutch, var nil_orb, var min_orb, var vim_orb, var clock_done):
+remote func sync_in_progress(var bookshelf_done,
+var poster_operable,
+var Min_clutch,
+var nil_orb, var min_orb, var vim_orb,
+var nil_done, var min_done, var vim_done,
+var clock_done, var slider_done,
+var area_done, var door_open):
 	$'YSort/Bookshelf'.is_done=bookshelf_done
 	if bookshelf_done:
 		$'YSort/Bookshelf'.has_moved()
@@ -24,4 +36,11 @@ remote func sync_in_progress(var bookshelf_done, var poster_operable, var Min_cl
 	$'YSort/NilStatue'.current_orb=nil_orb
 	$'YSort/MinStatue'.current_orb=min_orb
 	$'YSort/VimStatue'.current_orb=vim_orb
+	$'YSort/NilStatue'.is_done=nil_done
+	$'YSort/MinStatue'.is_done=min_done
+	$'YSort/VimStatue'.is_done=vim_done
 	$'YSort/Clock'.is_done=clock_done
+	$'YSort/Cabinet'.is_done=slider_done
+	$'YSort/Area2D'.done=area_done
+	$'YSort/Door'.is_open=door_open
+	

@@ -15,8 +15,7 @@ func make_orbs():
 func check_for_success():
 	if(correct_orbs==statues_orbs):
 		statues_orbs.clear()
-		is_open=true
-		rset("is_open",true)
+		unlock()
 		$'/root/Node2D/YSort/NilStatue'.set_done()
 		$'/root/Node2D/YSort/MinStatue'.set_done()
 		$'/root/Node2D/YSort/VimStatue'.set_done()

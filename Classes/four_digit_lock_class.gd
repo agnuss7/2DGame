@@ -81,7 +81,13 @@ func pass_correct_code(var s):
 
 func check_for_success():
 	if(current_code==correct_code):
-		_success()
+		control_enabled=false
+		$'AudioStreamPlayer'.play()
+		.pause(1)
+
+
+func play_after_pause():
+	_success()
 
 func _success():
 	#var nod2=get_node("/root/Node2D/YSort/"+operable_node)
@@ -89,8 +95,9 @@ func _success():
 	._close()
 
 func _process(delta):
-	get_input_for_highlight()
-	get_input_for_number()
-	if(Input.is_action_just_pressed("cancel")):
-		._close()
-	check_for_success()
+	if control_enabled:
+		get_input_for_highlight()
+		get_input_for_number()
+		if(Input.is_action_just_pressed("cancel")):
+			._close()
+		check_for_success()

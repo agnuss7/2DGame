@@ -51,20 +51,26 @@ func make_code():
 
 func check_success():
 	if current_code==correct_code:
-		operable_node.is_done=true
-		.set_operable_done()
-		._close()
-		var nod=get_node("/root/Node2D/YSort/"+str(get_tree().get_network_unique_id()))
-		nod.control_enabled=false
-		var overlay=load("res://Other/CommentSpace.tscn").instance()
-		$'/root/Node2D'.add_child(overlay)
-		overlay.pass_comments(["...the machine printed out a card","Picked up "+Inventory.global_inventory[1].name])
-		Inventory.inventory.append(1)
-		Inventory.rset('inventory',Inventory.inventory)
+		control_enabled=false
+		$AudioStreamPlayer.play()
+		.pause(1)
 		
+func play_after_pause():
+	operable_node.is_done=true
+	.set_operable_done()
+	._close()
+	var nod=get_node("/root/Node2D/YSort/"+str(get_tree().get_network_unique_id()))
+	nod.control_enabled=false
+	var overlay=load("res://Other/CommentSpace.tscn").instance()
+	$'/root/Node2D'.add_child(overlay)
+	overlay.pass_comments(["...the machine printed out a card","Picked up "+Inventory.global_inventory[1].name])
+	Inventory.inventory.append(1)
+	Inventory.rset('inventory',Inventory.inventory)
+	
 func _process(delta):
-	get_horizontal_input()
-	get_vertical_input()
-	check_success()
-	if (Input.is_action_just_pressed("cancel")):
-		._close()
+	if control_enabled:
+		get_horizontal_input()
+		get_vertical_input()
+		check_success()
+		if (Input.is_action_just_pressed("cancel")):
+			._close()

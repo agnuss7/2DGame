@@ -58,22 +58,27 @@ func make_code():
 
 func check_for_success():
 	if(current_code==correct_code):
-		self.queue_free()
-		var before=load("res://Other/CommentSpaceBeforeOverlay.tscn").instance()
-		var after=load("res://Overlays/lvl2MathHint.tscn").instance()
-		before.pass_operable(operable_node)
-		before.pass_next_overlay(after)
-		$'/root/Node2D'.add_child(before)
-		before.pass_comments(["The symbols on the plate changed to something different..."])
-		operable_node.set_code_complete()
-		
+		$AudioStreamPlayer.play()
+		control_enabled=false
+		.pause(0.5)
+
+func play_after_pause():
+	self.queue_free()
+	var before=load("res://Other/CommentSpaceBeforeOverlay.tscn").instance()
+	var after=load("res://Overlays/lvl2MathHint.tscn").instance()
+	before.pass_operable(operable_node)
+	before.pass_next_overlay(after)
+	$'/root/Node2D'.add_child(before)
+	before.pass_comments(["The symbols on the plate changed to something different..."])
+	operable_node.set_code_complete()
 
 func _process(delta):
-	get_move_input()
-	if is_operational:
-		get_e_input()
-	else:
-		is_operational=true
-	if(Input.is_action_just_pressed("cancel")):
-		._close()
-	check_for_success()
+	if control_enabled:
+		get_move_input()
+		if is_operational:
+			get_e_input()
+		else:
+			is_operational=true
+		if(Input.is_action_just_pressed("cancel")):
+			._close()
+		check_for_success()

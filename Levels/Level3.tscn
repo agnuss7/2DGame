@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://sprites/lock_part.png" type="Texture" id=1]
 [ext_resource path="res://sprites/fsmsteam01_b.png" type="Texture" id=2]
@@ -17,6 +17,11 @@
 [ext_resource path="res://Operables/NilStatue.gd" type="Script" id=15]
 [ext_resource path="res://Operables/MinStatue.gd" type="Script" id=16]
 [ext_resource path="res://Operables/VimStatue.gd" type="Script" id=17]
+[ext_resource path="res://Operables/lvl3Riddle.gd" type="Script" id=18]
+[ext_resource path="res://sprites/download (2).png" type="Texture" id=19]
+[ext_resource path="res://Operables/lvl3PC.gd" type="Script" id=20]
+[ext_resource path="res://sprites/number_lock_base.png" type="Texture" id=21]
+[ext_resource path="res://sounds/Sliding-SoundBible.com-649905012.wav" type="AudioStream" id=22]
 
 [sub_resource type="TileSet" id=1]
 0/name = "fsmsteam01_b.png 0"
@@ -210,7 +215,7 @@ extents = Vector2( 28.5555, 89.9347 )
 extents = Vector2( 7.24298, 6.6159 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 16.1014, 4.80851 )
+extents = Vector2( 16.1014, 6.76778 )
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 16.0456, 40.3743 )
@@ -225,6 +230,12 @@ extents = Vector2( 12.6482, 13.7156 )
 extents = Vector2( 14.7862, 14.9894 )
 
 [sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 12.835, 36.9174 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 15.2865, 11.6268 )
+
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 3.04126, 95.3049 )
 
 [node name="Node2D" type="Node2D"]
@@ -302,10 +313,13 @@ region_enabled = true
 region_rect = Rect2( 288, 80, 32, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Bookshelf"]
-position = Vector2( -0.176777, 11.4905 )
+position = Vector2( -0.0281259, 9.11208 )
 shape = SubResource( 12 )
 
 [node name="Tween" type="Tween" parent="YSort/Bookshelf"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YSort/Bookshelf"]
+stream = ExtResource( 22 )
 
 [node name="Poster" type="StaticBody2D" parent="YSort"]
 position = Vector2( 352.778, -26.4583 )
@@ -364,6 +378,38 @@ region_rect = Rect2( 390, 430, 30, 70 )
 position = Vector2( 0.667419, 19.3552 )
 shape = SubResource( 16 )
 
+[node name="Riddle" type="StaticBody2D" parent="YSort"]
+position = Vector2( 59.726, -27.1842 )
+scale = Vector2( 0.353803, 0.162828 )
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Riddle"]
+scale = Vector2( 0.866931, 0.943975 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Riddle"]
+shape = SubResource( 17 )
+
+[node name="Cabinet" type="StaticBody2D" parent="YSort"]
+position = Vector2( 399.918, -17.0445 )
+scale = Vector2( 0.582804, 0.499754 )
+script = ExtResource( 20 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Cabinet"]
+texture = ExtResource( 19 )
+region_enabled = true
+region_rect = Rect2( 384, 256, 32, 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Cabinet"]
+position = Vector2( -0.0184175, 4.21211 )
+shape = SubResource( 18 )
+
+[node name="Sprite2" type="Sprite" parent="YSort/Cabinet"]
+self_modulate = Color( 0.415686, 0.27451, 0.27451, 1 )
+position = Vector2( -0.681641, -9.80487 )
+scale = Vector2( 0.0409122, 0.0611207 )
+texture = ExtResource( 21 )
+
 [node name="railing" type="StaticBody2D" parent="."]
 position = Vector2( 282.5, 73.495 )
 
@@ -376,7 +422,7 @@ region_rect = Rect2( 120, 180, 15, 150 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="railing"]
 position = Vector2( 8.51425, 45.8819 )
-shape = SubResource( 17 )
+shape = SubResource( 19 )
 
 [node name="Wall" type="TileMap" parent="."]
 tile_set = SubResource( 3 )

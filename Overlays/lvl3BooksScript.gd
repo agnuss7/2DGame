@@ -32,6 +32,7 @@ func get_vertical_input():
 
 func get_e_input():
 	if Input.is_action_just_pressed("operate"):
+		$AudioStreamPlayer.play(0.16)
 		var nod=get_node("CanvasLayer/Base/Row"+str(current_row)+"/Highlight"+str(current_selected)+"/Book")
 		if (nod.frame==0):
 			nod.frame=1
@@ -73,7 +74,11 @@ func make_code():
 
 func check_for_success():
 	if current_code==correct_code:
-		success()
+		control_enabled=false
+		pause(0.5)
+
+func play_after_pause():
+	success()
 
 func success():
 	._close()
@@ -86,10 +91,13 @@ func success():
 	
 
 func _process(delta):
-	if is_operational:
-		get_horizontal_input()
-		get_vertical_input()
-		get_e_input()
-		check_for_success()
-	else:
-		is_operational=true
+	if control_enabled:
+		if is_operational:
+			get_horizontal_input()
+			get_vertical_input()
+			get_e_input()
+			check_for_success()
+			if(Input.is_action_just_pressed("cancel")):
+				._close()
+		else:
+			is_operational=true

@@ -41,18 +41,24 @@ func get_e_input():
 
 func check_for_success():
 	if(text.text==correct_code):
-		var door=$'/root/Node2D/YSort/Door'
-		door.unlock()
-		door.unlock_anim()
-		door.rpc('unlock_anim')
-		._close()
-		operable_node.set_done()
+		control_enabled=false
+		$AudioStreamPlayer.play()
+		pause(0.7)
+
+func play_after_pause():
+	var door=$'/root/Node2D/YSort/Door'
+	door.unlock()
+	door.unlock_anim()
+	door.rpc('unlock_anim')
+	._close()
+	operable_node.set_done()
 
 func _process(delta):
-	get_move_input()
-	if(e_operational):
-		get_e_input()
-	else:
-		e_operational=true
-	if(Input.is_action_just_pressed("cancel")):
-		._close()
+	if control_enabled:
+		get_move_input()
+		if(e_operational):
+			get_e_input()
+		else:
+			e_operational=true
+		if(Input.is_action_just_pressed("cancel")):
+			._close()

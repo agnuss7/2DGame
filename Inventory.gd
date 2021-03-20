@@ -9,7 +9,7 @@ const global_inventory={
 	5: {'name':'Red orb','texture':"res://textures/red_orb.png"}
 }
 
-remote var inventory=[3,4,5]
+remote var inventory=[]
 
 func add_item(var item):
 	inventory.append(item)

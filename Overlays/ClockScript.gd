@@ -5,6 +5,7 @@ var current_minute=0
 var enterred_times=[]
 var correct_sequence=[[9,2],[4,7],[8,0]]
 var current_sequence=0
+
 func _ready():
 	pass 
 
@@ -47,7 +48,11 @@ func check_sequence():
 			current_sequence+=1
 			enterred_times.clear()
 		else:
-			success()
+			control_enabled=false
+			.pause(0.5)
+
+func play_after_pause():
+	success()
 
 func success():
 	operable_node.set_done()
@@ -59,8 +64,9 @@ func success():
 	Inventory.add_item(5)
 
 func _process(delta):
-	input_hour_hand()
-	input_minute_hand()
-	check_sequence()
-	if Input.is_action_just_pressed("cancel"):
-		._close()
+	if control_enabled:
+		input_hour_hand()
+		input_minute_hand()
+		check_sequence()
+		if Input.is_action_just_pressed("cancel"):
+			._close()

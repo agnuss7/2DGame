@@ -19,7 +19,8 @@ remote func sync_level(var id):
 		$'YSort/Clock'.is_done,
 		$'YSort/Cabinet'.is_done,
 		$'YSort/Area2D'.done,
-		$'YSort/Door'.is_open)
+		$'YSort/Door'.is_open,
+		$'YSort/Pipes'.is_done)
 	
 remote func sync_in_progress(var bookshelf_done,
 var poster_operable,
@@ -27,7 +28,8 @@ var Min_clutch,
 var nil_orb, var min_orb, var vim_orb,
 var nil_done, var min_done, var vim_done,
 var clock_done, var slider_done,
-var area_done, var door_open):
+var area_done, var door_open,
+var pipes_done):
 	$'YSort/Bookshelf'.is_done=bookshelf_done
 	if bookshelf_done:
 		$'YSort/Bookshelf'.has_moved()
@@ -43,4 +45,4 @@ var area_done, var door_open):
 	$'YSort/Cabinet'.is_done=slider_done
 	$'YSort/Area2D'.done=area_done
 	$'YSort/Door'.is_open=door_open
-	
+	$'YSort/Pipes'.is_done=pipes_done

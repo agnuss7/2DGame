@@ -1,0 +1,266 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://sprites/pipe_base_neutral.png" type="Texture" id=1]
+[ext_resource path="res://sprites/pipe_curve.png" type="Texture" id=2]
+[ext_resource path="res://sprites/pipe_full.png" type="Texture" id=3]
+[ext_resource path="res://sprites/pipe_t.png" type="Texture" id=4]
+[ext_resource path="res://sprites/pipe_vertical.png" type="Texture" id=5]
+[ext_resource path="res://Overlays/lvl3Pipe_puzzle.gd" type="Script" id=6]
+[ext_resource path="res://sprites/pipe_bottle.png" type="Texture" id=7]
+[ext_resource path="res://sprites/lock_part.png" type="Texture" id=8]
+[ext_resource path="res://textures/blue_orb.png" type="Texture" id=9]
+[ext_resource path="res://sprites/number_lock_base.png" type="Texture" id=10]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Base" type="Node2D" parent="CanvasLayer"]
+position = Vector2( 54.5797, 27.9645 )
+scale = Vector2( 1.14684, 1.14684 )
+
+[node name="PipeBase0" type="Sprite" parent="CanvasLayer/Base"]
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase0"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase1" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 20, 0 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase1"]
+texture = ExtResource( 4 )
+
+[node name="PipeBase2" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 40, 0 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase2"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase3" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 60, 0 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase3"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase4" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 80, 0 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase4"]
+texture = ExtResource( 5 )
+
+[node name="PipeBase5" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 100, 0 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase5"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase6" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 0, 20 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase6"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase7" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 20, 20 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase7"]
+texture = ExtResource( 4 )
+
+[node name="PipeBase8" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 40, 20 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase8"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase9" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 60, 20 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase9"]
+texture = ExtResource( 5 )
+
+[node name="PipeBase10" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 80, 20 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase10"]
+texture = ExtResource( 4 )
+
+[node name="PipeBase11" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 100, 20 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase11"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase12" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 0, 40 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase12"]
+texture = ExtResource( 5 )
+
+[node name="PipeBase13" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 20, 40 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase13"]
+texture = ExtResource( 4 )
+
+[node name="PipeBase14" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 40, 40 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase14"]
+texture = ExtResource( 5 )
+
+[node name="PipeBase15" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 60, 40 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase15"]
+texture = ExtResource( 3 )
+
+[node name="PipeBase16" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 80, 40 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase16"]
+texture = ExtResource( 5 )
+
+[node name="PipeBase17" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 100, 40 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase17"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase18" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 0, 60 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase18"]
+texture = ExtResource( 4 )
+
+[node name="PipeBase19" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 20, 60 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase19"]
+texture = ExtResource( 5 )
+
+[node name="PipeBase20" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 40, 60 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase20"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase21" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 60, 60 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase21"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase22" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 80, 60 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase22"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase23" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 100, 60 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase23"]
+texture = ExtResource( 5 )
+
+[node name="PipeBase24" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 0, 80 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase24"]
+texture = ExtResource( 4 )
+
+[node name="PipeBase25" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 20, 80 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase25"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase26" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 40, 80 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase26"]
+texture = ExtResource( 2 )
+
+[node name="PipeBase27" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 60, 80 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase27"]
+texture = ExtResource( 3 )
+
+[node name="PipeBase28" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 80, 80 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase28"]
+texture = ExtResource( 5 )
+
+[node name="PipeBase29" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 100, 80 )
+texture = ExtResource( 1 )
+
+[node name="Pipe" type="Sprite" parent="CanvasLayer/Base/PipeBase29"]
+texture = ExtResource( 2 )
+
+[node name="Bottle" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( 130, 40 )
+texture = ExtResource( 7 )
+
+[node name="water" type="Sprite" parent="CanvasLayer/Base/Bottle"]
+self_modulate = Color( 0, 0.478431, 1, 0.352941 )
+position = Vector2( -0.499998, 44 )
+scale = Vector2( 0.926, 1e-05 )
+texture = ExtResource( 8 )
+offset = Vector2( 1.52588e-05, -40 )
+
+[node name="Tween" type="Tween" parent="CanvasLayer/Base/Bottle/water"]
+
+[node name="orb" type="Sprite" parent="CanvasLayer/Base/Bottle"]
+position = Vector2( -0.42, 33.636 )
+scale = Vector2( 1.77989, 1.8309 )
+texture = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="CanvasLayer/Base/Bottle/orb"]
+
+[node name="water" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( -20.9743, -0.77684 )
+scale = Vector2( 0.0629195, 0.151418 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="CanvasLayer/Base/water"]
+margin_left = -127.034
+margin_top = -33.1113
+margin_right = -87.0337
+margin_bottom = -19.1113
+rect_scale = Vector2( 9.03754, 4.80191 )
+text = "H2O"
+__meta__ = {
+"_edit_use_anchors_": false
+}

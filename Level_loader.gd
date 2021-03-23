@@ -1,5 +1,5 @@
 extends Node
-remote var current_level=3
+remote var current_level=1
 remote var line_number=0
 const total_levels=3
 
@@ -74,4 +74,5 @@ func give_names(var nn):
 	if get_tree().is_network_server():
 		$'/root/Node2D'.pass_names(nn,scores)
 		$'/root/Node2D'.rpc('pass_names',nn, scores)
+	
 	

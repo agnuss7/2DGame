@@ -57,7 +57,7 @@ func player_sprite_name():
 	
 func _host_button_pressed():
 	NeetWork.host_game(text.text,player_sprite_name())
-	#LevelLoader.current_level=1
+	LevelLoader.current_level=1
 	LevelLoader.Load_level(LevelLoader.current_level)
 	self.queue_free()
 	

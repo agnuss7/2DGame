@@ -1,6 +1,6 @@
 extends "res://Classes/overlay_class.gd"
 
-var control_enabled=true 
+
 var current_selected=1
 const total_buttons=3
 var is_operational=false

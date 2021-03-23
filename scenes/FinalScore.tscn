@@ -35,3 +35,13 @@ columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="."]
+margin_left = 155.786
+margin_top = 2.97302
+margin_right = 254.786
+margin_bottom = 22.973
+text = "Back to Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}

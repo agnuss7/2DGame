@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Other/Instructions_script.gd" type="Script" id=1]
+[ext_resource path="res://sprites/arrow_yellow.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 180.725
+margin_top = 4.38541
+margin_right = 250.725
+margin_bottom = 20.3854
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 52.0
+margin_bottom = 15.0
+text = "wasd"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+margin_left = 56.0
+margin_right = 72.0
+margin_bottom = 16.0
+texture = ExtResource( 2 )
+
+[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer"]
+margin_left = 76.0
+margin_top = 1.0
+margin_right = 115.0
+margin_bottom = 15.0
+text = "to tiltf"

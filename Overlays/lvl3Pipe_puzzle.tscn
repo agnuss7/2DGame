@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/pipe_base_neutral.png" type="Texture" id=1]
 [ext_resource path="res://sprites/pipe_curve.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://sprites/lock_part.png" type="Texture" id=8]
 [ext_resource path="res://textures/blue_orb.png" type="Texture" id=9]
 [ext_resource path="res://sprites/number_lock_base.png" type="Texture" id=10]
+[ext_resource path="res://sounds/Pouring A Glass Full-SoundBible.com-1282160653.wav" type="AudioStream" id=11]
+[ext_resource path="res://sounds/Pump Shotgun 2x-SoundBible.com-278688366.wav" type="AudioStream" id=12]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
@@ -264,3 +266,9 @@ text = "H2O"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="rotation_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )

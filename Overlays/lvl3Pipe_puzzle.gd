@@ -20,6 +20,7 @@ func change_rotations():
 		node.rotation_degrees=90*rotations[i]
 
 func change_rotation():
+	$rotation_sound.play(2.25)
 	var node=get_node("CanvasLayer/Base/PipeBase"+str(current_selected))
 	node.rotation_degrees=90*rotations[current_selected]
 
@@ -44,7 +45,7 @@ func get_rotation_input():
 			rotations[current_selected]+=1
 		else:
 			rotations[current_selected]=0
-	change_rotation()
+		change_rotation()
 
 func check_for_success():
 	if (rotations[0]==3 and
@@ -67,6 +68,7 @@ func check_for_success():
 	rotations[29]==1):
 		control_enabled=false
 		play_animations()
+		$AudioStreamPlayer.play(9.2)
 		.pause(1.5)
 
 func play_after_pause():
@@ -76,7 +78,7 @@ func play_after_pause():
 	overlay.pass_operable(operable_node)
 	$'/root/Node2D'.add_child(overlay)
 	overlay.pass_comments(["Picked up Blue Orb"])
-	._close()
+	self.queue_free()
 
 func play_animations():
 	var bottle=$'CanvasLayer/Base/Bottle/water/Tween'

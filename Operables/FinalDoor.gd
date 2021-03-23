@@ -3,8 +3,7 @@ extends "res://Classes/door_class.gd"
 remote var statues_orbs=[]
 var correct_orbs=[3,1,2]
 
-func _ready():
-	is_open=true
+
 
 func make_orbs():
 	statues_orbs.clear()

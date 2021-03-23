@@ -7,7 +7,7 @@ var current_row=1
 var is_operational=false
 
 var current_code="000000000000000000000"
-var correct_code="010000001000000100000"
+var correct_code="010000000000010000010"
 func get_horizontal_input():
 	if Input.is_action_just_pressed("left"):
 		if current_selected>1:

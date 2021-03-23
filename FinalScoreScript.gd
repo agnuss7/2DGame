@@ -2,6 +2,13 @@ extends Node2D
 
 func _ready():
 	$'names'.text="Players: "
+	$'Button'.connect("pressed",self,"press_button")
+
+func press_button():
+	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	NeetWork.players.clear()
+	LevelLoader.scores.clear()
+	NeetWork.peer.close_connection()
 
 remote func pass_names(var nn, var ss):
 	for i in range(0,nn.size()):

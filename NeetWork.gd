@@ -1,6 +1,7 @@
 extends Node
-# Declare member variables here. Examples:
+
 var peer
+var upnp
 const DEFAULT_PORT=10567
 const MAX_PEERS=2
 const ip="127.0.0.1"
@@ -11,6 +12,10 @@ var players={}
 func _ready():
 	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')
 	get_tree().connect('network_peer_connected', self, '_on_player_connected')
+	upnp = UPNP.new()
+	upnp.discover()
+	upnp.add_port_mapping(DEFAULT_PORT)
+
 	
 func host_game(new_player_name, sprite_name):
 	player_info.nick_name = new_player_name

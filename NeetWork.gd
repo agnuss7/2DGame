@@ -12,19 +12,28 @@ var players={}
 func _ready():
 	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')
 	get_tree().connect('network_peer_connected', self, '_on_player_connected')
-	upnp = UPNP.new()
-	upnp.discover()
-	upnp.add_port_mapping(DEFAULT_PORT)
+
+	
+	
 
 	
 func host_game(new_player_name, sprite_name):
 	player_info.nick_name = new_player_name
 	player_info.sprite_name=sprite_name
 	players[1]=player_info
+	upnp = UPNP.new()
+	upnp.discover()
+	upnp.add_port_mapping(DEFAULT_PORT)
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_server(DEFAULT_PORT, MAX_PEERS)
 	get_tree().set_network_peer(peer)
+	
+	IpDatabase.start_broadcast()
+	IpDatabase.is_hosting=true
+	
 	print('host game')
+
+
 
 
 func join_game(ip, new_player_name,sprite_name):
@@ -34,6 +43,9 @@ func join_game(ip, new_player_name,sprite_name):
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_client(ip, DEFAULT_PORT)
 	get_tree().set_network_peer(peer)
+	
+	IpDatabase.start_listen()
+	IpDatabase.is_joined=true
 	print('join game')
 
 func _on_player_disconnected(id):

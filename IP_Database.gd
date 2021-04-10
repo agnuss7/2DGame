@@ -7,7 +7,9 @@ var broadcast_timer=0
 
 var is_hosting=false
 var is_joined=false
+var is_joining=false
 
+var host_nick_name
 
 func _ready():
 	broadcast_network=PacketPeerUDP.new()
@@ -22,8 +24,8 @@ func end_broadcast():
 
 func broadcast_ip():
 	if broadcast_timer<=0:
-		broadcast_timer=3
-		var pac=(IP.get_local_addresses()[0]).to_ascii()
+		broadcast_timer=2
+		var pac=(NeetWork.player_info.nick_name).to_ascii()
 		broadcast_network.put_packet(pac)
 	
 
@@ -36,8 +38,10 @@ func end_listen():
 func listening():
 	if broadcast_network.get_available_packet_count()>0:
 		var bytes=broadcast_network.get_packet()
-		lan_ip=bytes.get_string_from_ascii()
-		print(lan_ip)
+		host_nick_name=bytes.get_string_from_ascii()
+		lan_ip=broadcast_network.get_packet_ip()
+	else:
+		lan_ip=""
 
 
 
@@ -45,5 +49,5 @@ func _process(delta):
 	if is_hosting:
 		broadcast_timer-=delta
 		broadcast_ip()
-	if is_joined:
+	if is_joining:
 		listening()

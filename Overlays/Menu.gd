@@ -53,11 +53,9 @@ func to_main():
 	get_tree().change_scene('res://scenes/MainMenu.tscn')
 	NeetWork.players.clear()
 	NeetWork.peer.close_connection()
-
-
-
-
-
+	if get_tree().is_network_server():
+		IpDatabase.is_hosting=false
+		IpDatabase.end_broadcast()
 
 
 func _process(delta):

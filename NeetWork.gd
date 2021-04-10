@@ -43,9 +43,6 @@ func join_game(ip, new_player_name,sprite_name):
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_client(ip, DEFAULT_PORT)
 	get_tree().set_network_peer(peer)
-	
-	IpDatabase.start_listen()
-	IpDatabase.is_joined=true
 	print('join game')
 
 func _on_player_disconnected(id):

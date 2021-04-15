@@ -14,12 +14,13 @@ var host_nick_name
 func _ready():
 	broadcast_network=PacketPeerUDP.new()
 	
-
 func start_broadcast():
 	broadcast_network.set_broadcast_enabled(true)
 	broadcast_network.set_dest_address("255.255.255.255",broadcast_port)
 
 func end_broadcast():
+	var pac=("_end_of_broadcast_").to_ascii()
+	broadcast_network.put_packet(pac)
 	broadcast_network.set_broadcast_enabled(false)
 
 func broadcast_ip():
@@ -40,9 +41,7 @@ func listening():
 		var bytes=broadcast_network.get_packet()
 		host_nick_name=bytes.get_string_from_ascii()
 		lan_ip=broadcast_network.get_packet_ip()
-	else:
-		lan_ip=""
-
+	print (host_nick_name)
 
 
 func _process(delta):

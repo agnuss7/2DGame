@@ -53,9 +53,10 @@ func _lan_button_pressed():
 func check_lan():
 	if IpDatabase.lan_ip!=null and IpDatabase.host_nick_name!="_end_of_broadcast_":
 		lan_status.text="LAN: "+IpDatabase.host_nick_name+"'s game"
-		
+		lan_available=true
 	else:
 		lan_status.text="LAN: unavailable"
+		lan_available=false
 
 func _process(delta):
 	time+=delta

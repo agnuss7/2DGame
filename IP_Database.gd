@@ -5,6 +5,8 @@ var broadcast_port=6868
 var broadcast_network
 var broadcast_timer=0
 
+var listen_timer=0
+
 var is_hosting=false
 var is_joined=false
 var is_joining=false
@@ -41,6 +43,8 @@ func listening():
 		var bytes=broadcast_network.get_packet()
 		host_nick_name=bytes.get_string_from_ascii()
 		lan_ip=broadcast_network.get_packet_ip()
+	else:
+		host_nick_name="_end_of_broadcast_"
 	print (host_nick_name)
 
 
@@ -49,4 +53,7 @@ func _process(delta):
 		broadcast_timer-=delta
 		broadcast_ip()
 	if is_joining:
-		listening()
+		listen_timer+=delta
+		if listen_timer>=2:
+			listen_timer=0
+			listening()
